@@ -26,3 +26,4 @@ sed -i '$a net.ipv6.conf.all.disable_ipv6 = 1' /etc/sysctl.conf
 sed -i '$a IPV6INIT=no' /etc/sysconfig/network-scripts/ifcfg-eth0
 service ip6tables stop
 chkconfig ip6tables off
+/sbin/reboot
