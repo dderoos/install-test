@@ -27,15 +27,6 @@ sed -i 's/# End of file/biadmin hard nofile 65536\nbiadmin soft nofile 65536\nbi
 ## set boottime and runtime port ranges
 sed -i '$a # Set ranges for BigInsights Install\n\nkernel.pid_max = 4194303\nnet.ipv4.ip_local_port_range = 1024 64000' /etc/sysctl.conf
 
-## for master node add biginsights dir and download prereq rpm
-
-mkdir /home/root/biginsights
-mkdir /home/root/biginsights/artifacts
-
-
-wget –v ftp://ftp.pbone.net/mirror/archive.fedoraproject.org/fedora/linux/core/4/x86_64/os/Fedora/RPMS/tcl-8.4.9-3.x86_64.rpm -P /root/biginsights/artifacts
-
-
 ## turn off ipv6
 echo '# Turn off IPv6 for BigInsights Install' >> /etc/modprobe.conf
 echo 'alias net-pf-10 off' >> /etc/modprobe.conf
@@ -45,3 +36,6 @@ sed -i '$a IPV6INIT=no' /etc/sysconfig/network-scripts/ifcfg-eth0
 service ip6tables stop
 chkconfig ip6tables off
 /sbin/reboot
+
+## start or restart time service
+service ntpd start
