@@ -38,4 +38,4 @@ chkconfig ip6tables off
 /sbin/reboot
 
 ## start or restart time service
-service ntpd start
+sudo service ntpd start
