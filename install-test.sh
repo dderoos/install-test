@@ -18,8 +18,8 @@ chown biadmin:biadmin /home/biadmin/.ssh/*
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >>  ~/.ssh/authorized_keys
 
-sudo -u biadmin ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-sudo -u biadmin cat ~/.ssh/id_rsa.pub >>  ~/.ssh/authorized_keys
+sudo -u biadmin ssh-keygen -t rsa -P '' -f /home/biadmin/.ssh/id_rsa
+sudo -u biadmin cat ~/.ssh/id_rsa.pub >>  /home/biadmin/.ssh/authorized_keys
 
 ## set adequate resources for biadmin
 sed -i 's/# End of file/biadmin hard nofile 65536\nbiadmin soft nofile 65536\nbiadmin hard nproc 65536\nbiadmin soft nproc 65536\n# End of file/' /etc/security/limits.conf
