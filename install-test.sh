@@ -9,10 +9,10 @@ sed -i 's/Defaults    requiretty/##Defaults    requiretty/' /etc/sudoers
 sed -i 's/root	ALL=(ALL) 	ALL/root	ALL=(ALL) 	ALL\nroot	ALL=(ALL) 	NOPASSWD: ALL\nbiadmin	ALL=(ALL) 	NOPASSWD: ALL/' /etc/sudoers
 
 ## copy ssh keys to biadmin user
-mkdir /home/biadmin/.ssh
-chown biadmin:biadmin /home/biadmin/.ssh
-cp /root/.ssh/* /home/biadmin/.ssh/
-chown biadmin:biadmin /home/biadmin/.ssh/*
+#mkdir /home/biadmin/.ssh
+#chown biadmin:biadmin /home/biadmin/.ssh
+#cp /root/.ssh/* /home/biadmin/.ssh/
+#chown biadmin:biadmin /home/biadmin/.ssh/*
 
 ## generate ssh keys
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
